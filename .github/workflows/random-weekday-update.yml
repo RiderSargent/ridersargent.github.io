@@ -29,6 +29,8 @@ jobs:
 
       - name: Update file
         if: steps.decide.outputs.run == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           echo "Updated at $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> daily.txt
 
